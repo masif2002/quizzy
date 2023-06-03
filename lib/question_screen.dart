@@ -14,22 +14,37 @@ class QuestionScreen extends StatefulWidget {
 }
 
 class _QuestionScreenState extends State<QuestionScreen> {
+  int index = 0;
+
+  void nextQuestion() {
+    setState(() {
+      index += 1;
+    });
+    // ToDo: Check Maximum Index
+  }
+
   @override
   Widget build(BuildContext context) {
-    var currentQuestion = questions[0];
-
+    var currentQuestion = questions[index];
+    
     return SizedBox(
       width: double.infinity,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            currentQuestion.question,
-            style: const TextStyle(color: Colors.white),
-          ),
-          const SpaceBetween(),
-          ...currentQuestion.answers.map((choice) => ChoiceButton(choice))
-        ],
+      child: Container(
+        margin: const EdgeInsets.symmetric(horizontal: 60),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(
+              currentQuestion.question,
+              style: const TextStyle(color: Colors.white),
+              textAlign: TextAlign.center,
+            ),
+            const SpaceBetween(),
+            ...?currentQuestion.shuffledAnswers
+                ?.map((choice) => ChoiceButton(choice, nextQuestion))
+          ],
+        ),
       ),
     );
   }
