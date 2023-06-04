@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ChoiceButton extends StatelessWidget {
   const ChoiceButton(this.choice, this.nextQuestion, {super.key});
 
   final String choice;
-  final void Function() nextQuestion;
+  final void Function(String answer) nextQuestion;
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +15,14 @@ class ChoiceButton extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
         backgroundColor: const Color.fromARGB(31, 190, 18, 136),
       ),
-      onPressed: nextQuestion,
-      child: Text(choice),
+      onPressed: () {
+        nextQuestion(choice);
+      },
+      child: Text(
+        choice,
+        textAlign: TextAlign.center,
+        style: GoogleFonts.poppins(),
+      ),
     );
   }
 }

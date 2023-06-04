@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:rapid_quiz/choice_button.dart';
 
 import 'package:rapid_quiz/data/questions.dart';
 import 'package:rapid_quiz/space_between.dart';
 
 class QuestionScreen extends StatefulWidget {
-  const QuestionScreen({super.key});
+  const QuestionScreen({super.key, required this.selectAnswer});
+
+  final void Function(String answer) selectAnswer;
 
   @override
   State<QuestionScreen> createState() {
@@ -16,7 +19,8 @@ class QuestionScreen extends StatefulWidget {
 class _QuestionScreenState extends State<QuestionScreen> {
   int index = 0;
 
-  void nextQuestion() {
+  void nextQuestion(String answer) {
+    widget.selectAnswer(answer);
     setState(() {
       index += 1;
     });
@@ -26,7 +30,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
   @override
   Widget build(BuildContext context) {
     var currentQuestion = questions[index];
-    
+
     return SizedBox(
       width: double.infinity,
       child: Container(
@@ -37,7 +41,12 @@ class _QuestionScreenState extends State<QuestionScreen> {
           children: [
             Text(
               currentQuestion.question,
-              style: const TextStyle(color: Colors.white),
+              style: GoogleFonts.poppins(
+                color: Colors.white,
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                letterSpacing: 1,
+              ),
               textAlign: TextAlign.center,
             ),
             const SpaceBetween(),
