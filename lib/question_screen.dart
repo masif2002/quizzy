@@ -6,9 +6,11 @@ import 'package:rapid_quiz/data/questions.dart';
 import 'package:rapid_quiz/space_between.dart';
 
 class QuestionScreen extends StatefulWidget {
-  const QuestionScreen({super.key, required this.selectAnswer});
+  const QuestionScreen(
+      {super.key, required this.selectAnswer, required this.showResult});
 
   final void Function(String answer) selectAnswer;
+  final void Function() showResult;
 
   @override
   State<QuestionScreen> createState() {
@@ -21,6 +23,12 @@ class _QuestionScreenState extends State<QuestionScreen> {
 
   void nextQuestion(String answer) {
     widget.selectAnswer(answer);
+
+    if (index + 1 >= questions.length) {
+      widget.showResult();
+      return;
+    }
+
     setState(() {
       index += 1;
     });

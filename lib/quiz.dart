@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rapid_quiz/question_screen.dart';
+import 'package:rapid_quiz/result_screen.dart';
 import 'package:rapid_quiz/start_screen.dart';
 
 class Quiz extends StatefulWidget {
@@ -19,31 +20,45 @@ class _QuizState extends State<Quiz> {
     selectedAnswers.add(answer);
   }
 
-  void switchScreen() {
+  void showQuestions() {
     setState(() {
       activeScreen = 'question-screen';
     });
   }
 
+  void showResultScreen() {
+    setState(() {
+      activeScreen = 'result-screen';
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    Widget currentScreen = StartScreen(showQuestions);
+
+    if (activeScreen == 'question-screen') {
+      currentScreen = QuestionScreen(
+        selectAnswer: onSelect,
+        showResult: showResultScreen,
+      );
+    } else if (activeScreen == 'result-screen') {
+      currentScreen = ResultScreen(selectedAnswers);
+    }
+
     return MaterialApp(
       home: Scaffold(
         body: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                Colors.deepPurpleAccent,
-                Colors.deepPurple,
-              ],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Colors.deepPurpleAccent,
+                  Colors.deepPurple,
+                ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
             ),
-          ),
-          child: activeScreen == 'start-screen'
-              ? StartScreen(switchScreen)
-              : QuestionScreen(selectAnswer: onSelect),
-        ),
+            child: currentScreen),
       ),
     );
   }

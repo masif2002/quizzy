@@ -4,7 +4,7 @@ class QuizQuestion {
   List<String>? shuffledAnswers;
 
   QuizQuestion(this.question, this.answers) {
-    shuffledAnswers = answers;
+    shuffledAnswers = [...answers];
     shuffledAnswers?.shuffle();
   }
 
