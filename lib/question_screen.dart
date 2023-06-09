@@ -58,8 +58,8 @@ class _QuestionScreenState extends State<QuestionScreen> {
               textAlign: TextAlign.center,
             ),
             const SpaceBetween(),
-            ...?currentQuestion.shuffledAnswers
-                ?.map((choice) => ChoiceButton(choice, nextQuestion))
+            ...currentQuestion.shuffledAnswers
+                .map((choice) => ChoiceButton(choice, nextQuestion))
           ],
         ),
       ),
