@@ -26,30 +26,36 @@ class StartScreen extends StatelessWidget {
             customTextColor: Colors.white,
           ),
           const SpaceBetween(),
-          OutlinedButton.icon(
-            onPressed: () {
-              startQuiz();
-            },
-            icon: const Icon(
-              Icons.chevron_right,
-              color: Colors.white,
-            ),
-            label: const CustomText(
-              'Start Quiz',
-              customTextColor: Colors.white,
-            ),
-            style: OutlinedButton.styleFrom(
-              padding: const EdgeInsets.all(15),
-              side: const BorderSide(
-                color: Color.fromARGB(255, 50, 25, 164),
+          Container(
+            decoration: const BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(10)),
+                gradient: LinearGradient(colors: [
+                  Color.fromARGB(255, 117, 230, 219),
+                  Color.fromARGB(255, 212, 241, 244),
+                ])),
+            child: OutlinedButton.icon(
+              onPressed: () {
+                startQuiz();
+              },
+              icon: const Icon(
+                Icons.chevron_right,
+                color: Color.fromARGB(255, 5, 5, 5),
               ),
-              shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(
-                  Radius.circular(25),
+              label: const CustomText(
+                'START QUIZ',
+                customTextColor: Color(0xFF05445E),
+              ),
+              style: FilledButton.styleFrom(
+                padding: const EdgeInsets.all(15),
+                // color: Color.fromARGB(255, 117, 230, 219),
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(10),
+                  ),
                 ),
               ),
             ),
-          )
+          ),
         ],
       ),
     );

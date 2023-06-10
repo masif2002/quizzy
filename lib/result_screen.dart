@@ -31,20 +31,33 @@ class ResultScreen extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         // Score
-        Text(
-          "You've scored $score out of $totalQuestions!",
-          style: GoogleFonts.poppins(
-            fontSize: 23,
-            color: const Color.fromARGB(255, 113, 212, 14),
-            fontWeight: FontWeight.bold,
+        RichText(
+          text: TextSpan(
+            style: GoogleFonts.poppins(
+              fontSize: 23,
+              color: const Color(0xFF75E6DA),
+              fontWeight: FontWeight.bold,
+            ),
+            children: <TextSpan>[
+              const TextSpan(text: "You've scored "),
+              TextSpan(
+                  text: score.toString(),
+                  style: const TextStyle(color: Colors.white)),
+              const TextSpan(text: " out of "),
+              TextSpan(
+                  text: '$totalQuestions',
+                  style: const TextStyle(color: Colors.white)),
+              const TextSpan(text: "!"),
+            ],
           ),
         ),
+
         const SpaceBetween(),
 
         // Results
         Center(
           child: SizedBox(
-            height: 300,
+            height: 400,
             child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -63,17 +76,38 @@ class ResultScreen extends StatelessWidget {
             ),
           ),
         ),
-
+        // Space
+        const SpaceBetween(
+          boxHeight: 40,
+        ),
         // Reset Button
-        TextButton.icon(
+        TextButton(
           style: TextButton.styleFrom(
             foregroundColor: Colors.white,
           ),
-          icon: const Icon(
-            Icons.replay,
-          ),
           onPressed: restartQuiz,
-          label: const Text('Reset Quiz'),
+          // icon: const Icon(
+          //   Icons.replay,
+          //   // textDirection: TextDirection.rtl,
+          // ),
+          // label: const Text(
+          //   'Reset Quiz',
+          //   style: TextStyle(fontSize: 20),
+          // ),
+          child: const Row(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                'Reset Quiz ',
+                style: TextStyle(fontSize: 20),
+              ),
+              Icon(
+                Icons.refresh_rounded,
+                size: 22,
+              ),
+            ],
+          ),
         )
       ],
     );

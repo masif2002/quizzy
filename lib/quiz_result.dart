@@ -26,9 +26,12 @@ class QuizResult extends StatelessWidget {
           width: 30,
           height: 30,
           decoration: BoxDecoration(
-            color: isRightAnswer ? Colors.tealAccent : Colors.redAccent,
-            shape: BoxShape.circle,
-          ),
+              color: isRightAnswer ? const Color(0xFF75E6DA) : const Color(0xFF189AB4),
+              shape: BoxShape.circle,
+              border: Border.all(
+                color: const Color(0xFF75E6DA),
+                width: 3,
+              )),
           alignment: Alignment.center,
           child: Text(
             questionNumber.toString(),
@@ -56,7 +59,7 @@ class QuizResult extends StatelessWidget {
                   const SizedBox(height: 5),
                   Text(
                     yourAnswer,
-                    style: const TextStyle(color: Colors.amberAccent),
+                    style: const TextStyle(color: Color(0xFFD4F1F4)),
                   ),
                   Text(
                     correctAnswer,
