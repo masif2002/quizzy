@@ -26,7 +26,9 @@ class QuizResult extends StatelessWidget {
           width: 30,
           height: 30,
           decoration: BoxDecoration(
-              color: isRightAnswer ? const Color(0xFF75E6DA) : const Color(0xFF189AB4),
+              color: isRightAnswer
+                  ? const Color(0xFF75E6DA)
+                  : const Color(0xFF189AB4),
               shape: BoxShape.circle,
               border: Border.all(
                 color: const Color(0xFF75E6DA),
@@ -42,31 +44,29 @@ class QuizResult extends StatelessWidget {
         // Question Details
         SizedBox(
           width: 300,
-          child: Expanded(
-            child: Container(
-              margin: const EdgeInsets.only(left: 20, bottom: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    question,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                      color: Colors.white,
-                    ),
+          child: Container(
+            margin: const EdgeInsets.only(left: 20, bottom: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  question,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                    color: Colors.white,
                   ),
-                  const SizedBox(height: 5),
-                  Text(
-                    yourAnswer,
-                    style: const TextStyle(color: Color(0xFFD4F1F4)),
-                  ),
-                  Text(
-                    correctAnswer,
-                    style: const TextStyle(color: Colors.tealAccent),
-                  ),
-                ],
-              ),
+                ),
+                const SizedBox(height: 5),
+                Text(
+                  yourAnswer,
+                  style: const TextStyle(color: Color(0xFFD4F1F4)),
+                ),
+                Text(
+                  correctAnswer,
+                  style: const TextStyle(color: Colors.tealAccent),
+                ),
+              ],
             ),
           ),
         ),

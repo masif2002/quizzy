@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:rapid_quiz/choice_button.dart';
+import 'package:quiz_app/choice_button.dart';
 
-import 'package:rapid_quiz/data/questions.dart';
-import 'package:rapid_quiz/space_between.dart';
+import 'package:quiz_app/data/questions.dart';
+import 'package:quiz_app/space_between.dart';
 
 class QuestionScreen extends StatefulWidget {
   const QuestionScreen(

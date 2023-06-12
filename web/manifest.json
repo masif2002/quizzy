@@ -1,6 +1,6 @@
 {
-    "name": "rapid_quiz",
-    "short_name": "rapid_quiz",
+    "name": "quiz_app",
+    "short_name": "quiz_app",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

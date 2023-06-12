@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:rapid_quiz/custom_text.dart';
-import 'package:rapid_quiz/space_between.dart';
+import 'package:quiz_app/custom_text.dart';
+import 'package:quiz_app/space_between.dart';
 
 class StartScreen extends StatelessWidget {
   const StartScreen(this.startQuiz, {super.key});

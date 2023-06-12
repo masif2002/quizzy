@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:rapid_quiz/data/questions.dart';
-import 'package:rapid_quiz/quiz_result.dart';
-import 'package:rapid_quiz/space_between.dart';
+import 'package:quiz_app/data/questions.dart';
+import 'package:quiz_app/quiz_result.dart';
+import 'package:quiz_app/space_between.dart';
 
 class ResultScreen extends StatelessWidget {
   const ResultScreen(this.selectedAnswers, this.restartQuiz, {super.key});
