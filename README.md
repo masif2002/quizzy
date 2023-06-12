@@ -27,4 +27,4 @@ A Quiz app with Flutter.
     ```
 
 
-If you face any issue during the setup, reach out to [me](https://twitter.com/imasiftoo), I'll be happy to help you out!
+If you face any issue during the setup, reach out to [me](https://www.linkedin.com/in/masif2002/), I'll be happy to help you out!
